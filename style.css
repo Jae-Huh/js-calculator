@@ -19,11 +19,14 @@ body {
 #display {
   background-color: #1a535c;
   color: #FFE66D;
-  width: 88%;
-  height: 50px;
-  font-size: 1.3em;
+  width: 76%;
+  height: 40px;
+  font-size: 2.3em;
   margin: 15px 0 5px 0;
+  padding: 5px 15px;
   border-radius: 10px;
+  text-align: right;
+  font-family: sans-serif;
 }
 
 #buttons {
