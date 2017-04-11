@@ -1,20 +1,22 @@
+var display = document.getElementById('display')
 var numButtons = document.getElementsByClassName('num')
 var operation = document.getElementsByClassName('operation')
-var equality = document.getElementById('equality')
 var add = document.getElementById('add')
 var subtract = document.getElementById('subtract')
 var multiply = document.getElementById('multiply')
 var divide = document.getElementById('divide')
-var display = document.getElementById('display')
+
+var equality = document.getElementById('equality')
+var percentage = document.getElementById('percentage')
+var clear = document.getElementById('clear')
 
 var currNumStr = ''
 var prevNum = 0
 var currNum = 0
 var operSign
-var prevOper
 
 
-//displays numbers in the display window
+// displays numbers in the display window
 for (var i = 0; i < numButtons.length; i++) {
   numButtons[i].addEventListener('click', function(event) {
     currNumStr += event.target.textContent
@@ -23,6 +25,7 @@ for (var i = 0; i < numButtons.length; i++) {
   })
 }
 
+// number operation
 for (var i = 0; i < operation.length; i++) {
   operation[i].addEventListener('click', function(event) {
     // if (currOp) { then do the sum, set answer as prevNum } else { set currNum as prevNum}
@@ -40,6 +43,19 @@ for (var i = 0; i < operation.length; i++) {
     console.log(currNum)
   })
 }
+
+// // show answer
+// equality.addEventListener('click', function() {
+//   display.innerHTML = prevNum
+// })
+
+// clears window
+clear.addEventListener('click', function() {
+  display.innerHTML = 0;
+  currNumStr = ''
+  prevNum = 0
+  currNum = 0
+})
 
 function calculate(operation, prevNum, currNum) {
   if (operation === '+') {
