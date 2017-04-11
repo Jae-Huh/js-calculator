@@ -1,12 +1,7 @@
 var display = document.getElementById('display')
 var numButtons = document.getElementsByClassName('num')
 var operation = document.getElementsByClassName('operation')
-var add = document.getElementById('add')
-var subtract = document.getElementById('subtract')
-var multiply = document.getElementById('multiply')
-var divide = document.getElementById('divide')
 
-var equality = document.getElementById('equality')
 var percentage = document.getElementById('percentage')
 var clear = document.getElementById('clear')
 
@@ -39,15 +34,8 @@ for (var i = 0; i < operation.length; i++) {
     currNum = 0
     currNumStr = ''
     operSign = event.target.textContent
-    console.log(prevNum)
-    console.log(currNum)
   })
 }
-
-// // show answer
-// equality.addEventListener('click', function() {
-//   display.innerHTML = prevNum
-// })
 
 // clears window
 clear.addEventListener('click', function() {
@@ -55,6 +43,7 @@ clear.addEventListener('click', function() {
   currNumStr = ''
   prevNum = 0
   currNum = 0
+  operSign = undefined
 })
 
 function calculate(operation, prevNum, currNum) {
@@ -66,8 +55,13 @@ function calculate(operation, prevNum, currNum) {
     return prevNum * currNum
   } else if (operation === '/') {
     return prevNum / currNum
+  } else if (operation === '=') {
+    return prevNum
   }
 }
+
+
+
 
 // (onCLick of number)
 // Save number as currNum
