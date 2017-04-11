@@ -28,7 +28,7 @@ for (var i = 0; i < operation.length; i++) {
     // if (currOp) { then do the sum, set answer as prevNum } else { set currNum as prevNum}
     // Empty currNum and save clicked Opoerate as currOp
     if (operSign) {
-      prevNum = operate(operSign, prevNum, currNum)
+      prevNum = calculate(operSign, prevNum, currNum)
       display.innerHTML = prevNum
     } else {
       prevNum = currNum
@@ -41,7 +41,7 @@ for (var i = 0; i < operation.length; i++) {
   })
 }
 
-function operate(operation, prevNum, currNum) {
+function calculate(operation, prevNum, currNum) {
   if (operation === '+') {
     return prevNum + currNum
   } else if (operation === '-') {
