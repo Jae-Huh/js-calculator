@@ -13,6 +13,10 @@ var operSign = undefined
 // displays numbers in the display window
 for (var i = 0; i < numButtons.length; i++) {
   numButtons[i].addEventListener('click', function(event) {
+    // displays 0 in front of d.p. when current number string is empty
+    if (event.target.textContent === '.' && currNumStr === '') {
+      currNumStr = '0'
+    }
     currNumStr += event.target.textContent
     display.innerHTML = currNumStr
     currNum = parseFloat(currNumStr)
