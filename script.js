@@ -2,13 +2,12 @@ var display = document.getElementById('display')
 var numButtons = document.getElementsByClassName('num')
 var operation = document.getElementsByClassName('operation')
 
-var percentage = document.getElementById('percentage')
 var clear = document.getElementById('clear')
 
 var currNumStr = ''
 var prevNum = 0
 var currNum = 0
-var operSign
+var operSign = undefined
 
 
 // displays numbers in the display window
@@ -17,6 +16,10 @@ for (var i = 0; i < numButtons.length; i++) {
     currNumStr += event.target.textContent
     display.innerHTML = currNumStr
     currNum = parseFloat(currNumStr)
+    if (event.target.textContent === '%') {
+      currNum = parseFloat(currNumStr)/100
+      display.innerHTML = currNum
+    }
   })
 }
 
