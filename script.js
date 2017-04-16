@@ -16,7 +16,7 @@ buttons.addEventListener('click', function(event) {
   }
 
   if (event.target.classList.contains('operation')) {
-    // Clicked a op
+    clickedOperation(event.target)
   }
 
   if (event.target.id === 'clear') {
@@ -41,22 +41,18 @@ function clickedNumber(el) {
 }
 
 
-// number operation
-for (var i = 0; i < operation.length; i++) {
-  operation[i].addEventListener('click', function(event) {
-    // if (currOp) { then do the sum, set answer as prevNum } else { set currNum as prevNum}
-    // Empty currNum and save clicked Opoerate as currOp
-    if (operSign) {
-      prevNum = calculate(operSign, prevNum, currNum)
-      display.innerHTML = prevNum
-    } else {
-      prevNum = currNum
-    }
-    currNum = 0
-    currNumStr = ''
-    operSign = event.target.textContent
-  })
+function clickedOperation(el) {
+  if (operSign) {
+    prevNum = calculate(operSign, prevNum, currNum)
+    display.innerHTML = prevNum
+  } else {
+    prevNum = currNum
+  }
+  currNum = 0
+  currNumStr = ''
+  operSign = el.textContent
 }
+
 
 // clears window
 clear.addEventListener('click', function() {
