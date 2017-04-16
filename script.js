@@ -1,6 +1,5 @@
 var display = document.getElementById('display')
-var buttons = document.getElementsByClassName('buttons')
-var numButtons = document.getElementsByClassName('num')
+var buttons = document.getElementById('buttons')
 var operation = document.getElementsByClassName('operation')
 
 var clear = document.getElementById('clear')
@@ -13,7 +12,7 @@ var operSign = undefined
 
 buttons.addEventListener('click', function(event) {
   if (event.target.classList.contains('num')) {
-    // Clicked a number
+    clickedNumber(event.target)
   }
 
   if (event.target.classList.contains('operation')) {
@@ -27,36 +26,20 @@ buttons.addEventListener('click', function(event) {
 })
 
 
-function clickedNumber() {
+function clickedNumber(el) {
   // displays 0 in front of d.p. when current number string is empty
-  if (event.target.textContent === '.' && currNumStr === '') {
+  if (el.textContent === '.' && currNumStr === '') {
     currNumStr = '0'
   }
-  currNumStr += event.target.textContent
+  currNumStr += el.textContent
   display.innerHTML = currNumStr
   currNum = parseFloat(currNumStr)
-  if (event.target.textContent === '%') {
+  if (el.textContent === '%') {
     currNum = parseFloat(currNumStr)/100
     display.innerHTML = currNum
   }
 }
 
-// displays numbers in the display window
-for (var i = 0; i < numButtons.length; i++) {
-  numButtons[i].addEventListener('click', function(event) {
-    // displays 0 in front of d.p. when current number string is empty
-    if (event.target.textContent === '.' && currNumStr === '') {
-      currNumStr = '0'
-    }
-    currNumStr += event.target.textContent
-    display.innerHTML = currNumStr
-    currNum = parseFloat(currNumStr)
-    if (event.target.textContent === '%') {
-      currNum = parseFloat(currNumStr)/100
-      display.innerHTML = currNum
-    }
-  })
-}
 
 // number operation
 for (var i = 0; i < operation.length; i++) {
