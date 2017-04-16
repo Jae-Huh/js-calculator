@@ -1,8 +1,6 @@
 var display = document.getElementById('display')
 var buttons = document.getElementById('buttons')
 
-var clear = document.getElementById('clear')
-
 var currNumStr = ''
 var prevNum = 0
 var currNum = 0
