@@ -1,6 +1,5 @@
 var display = document.getElementById('display')
 var buttons = document.getElementById('buttons')
-// var operation = document.getElementsByClassName('operation')
 
 var clear = document.getElementById('clear')
 
