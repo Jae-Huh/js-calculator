@@ -1,6 +1,6 @@
 var display = document.getElementById('display')
 var buttons = document.getElementById('buttons')
-var operation = document.getElementsByClassName('operation')
+// var operation = document.getElementsByClassName('operation')
 
 var clear = document.getElementById('clear')
 
@@ -14,15 +14,12 @@ buttons.addEventListener('click', function(event) {
   if (event.target.classList.contains('num')) {
     clickedNumber(event.target)
   }
-
   if (event.target.classList.contains('operation')) {
     clickedOperation(event.target)
   }
-
   if (event.target.id === 'clear') {
-    // Clicked a clear
+    clickedClear()
   }
-
 })
 
 
@@ -54,14 +51,14 @@ function clickedOperation(el) {
 }
 
 
-// clears window
-clear.addEventListener('click', function() {
+function clickedClear() {
   display.innerHTML = 0;
   currNumStr = ''
   prevNum = 0
   currNum = 0
   operSign = undefined
-})
+}
+
 
 function calculate(operation, prevNum, currNum) {
   if (operation === '+') {
@@ -76,32 +73,3 @@ function calculate(operation, prevNum, currNum) {
     return prevNum
   }
 }
-
-
-
-
-// (onCLick of number)
-// Save number as currNum
-
-// (onClick of Operator)
-// Save currNum as prevNum
-// Empty currNum
-// Save Operator as Op
-
-// (On 2nd Click of Number)
-// Save clicked number as CurrNumber
-
-// (On 2nd Oporate click)
-// use Op to sum prevNum and CurrNum
-// Save answer as prevNum
-// empty CurrNum
-// Save newly clicked Opoerate as Op
-
-// (On 3rd Click of Number)
-// Save clicked number as CurrNumber
-
-// (On 3rd Operaote click)
-// use Op to sum prevNum and CurrNum
-// Save answer as prevNum
-// Save newly clicked Opoerate as Op
-// empty CurrNum
