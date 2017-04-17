@@ -33,7 +33,8 @@ for (var i = 0; i < operation.length; i++) {
     // if (currOp) { then do the sum, set answer as prevNum } else { set currNum as prevNum}
     // Empty currNum and save clicked Opoerate as currOp
     if (operSign) {
-      prevNum = calculate(operSign, prevNum, currNum)
+      prevNum = round(calculate(operSign, prevNum, currNum), 2)
+      
       display.innerHTML = prevNum
     } else {
       prevNum = currNum
@@ -66,6 +67,12 @@ function calculate(operation, prevNum, currNum) {
     return prevNum
   }
 }
+
+function round(value, decimals) {
+  console.log(value, decimals)
+  return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+}
+
 
 
 
