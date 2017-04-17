@@ -38,7 +38,7 @@ function clickedNumber(el) {
 function clickedOperation(el) {
   if (operSign) {
     var ans = calculate(operSign, prevNum, currNum)
-    prevNum = round(ans, 2)
+    prevNum = round(ans, 3)
     display.innerHTML = prevNum
   } else {
     prevNum = currNum
