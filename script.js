@@ -37,7 +37,8 @@ function clickedNumber(el) {
 
 function clickedOperation(el) {
   if (operSign) {
-    prevNum = calculate(operSign, prevNum, currNum)
+    var ans = calculate(operSign, prevNum, currNum)
+    prevNum = round(ans, 2)
     display.innerHTML = prevNum
   } else {
     prevNum = currNum
@@ -69,4 +70,10 @@ function calculate(operation, prevNum, currNum) {
   } else if (operation === '=') {
     return prevNum
   }
+}
+
+
+function round(value, decimals) {
+  console.log(value, decimals)
+  return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 }
